@@ -1,0 +1,42 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="book"
+            type="com.ferdikanat.booklibrary.Book" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/bookThumbnail"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            app:imageUrl="@{book.thumbnail}"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/bookTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@id/bookThumbnail"
+            app:layout_constraintTop_toTopOf="@id/bookThumbnail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:text="@{book.title}" />
+
+        <TextView
+            android:id="@+id/bookAuthors"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@id/bookThumbnail"
+            app:layout_constraintTop_toBottomOf="@id/bookTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:text="@{book.authors}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
